@@ -41,9 +41,17 @@ $('form').submit((event) => {
       break;
 
     case 'category-news':
-      console.log(option_id)
       getNewsByCategory(option_id)
       break;
+
+    case 'source-news':
+      getNewsBySource(option_id)
+      break;
+
+    case 'search-news':
+      console.log('jkj')
+      getNewsByKeyword()
+
   }
 
   async function getNewsByCountry(country_name) {
@@ -69,4 +77,32 @@ $('form').submit((event) => {
     })
   }
 
+  async function getNewsBySource(source_name) {
+    result.innerHTML = ""
+    const news_response = await fetch(`/api/news/top-headlines/source/${source_name}`)
+    const news_json = await news_response.json()
+    console.log(news_json)
+    const articles = news_json.articles
+    console.log(articles)
+    articles.forEach(article => {
+      const html = generateCard(article)
+      result.innerHTML += html
+    })
+  }
+
+  async function getNewsByKeyword() {
+    result.innerHTML = ""
+    const keyword = document.getElementById('search').value
+    if (keyword === "") return 
+    console.log(keyword)
+    const news_response = await fetch(`/api/news/search/${keyword}`)
+    const news_json = await news_response.json()
+    console.log(news_json)
+    const articles = news_json.articles
+    console.log(articles)
+    articles.forEach(article => {
+      const html = generateCard(article)
+      result.innerHTML += html
+    })
+  }
 })
