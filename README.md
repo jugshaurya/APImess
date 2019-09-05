@@ -7,7 +7,6 @@
 1. ✅ News API (https://newsapi.org/)
 2. Pokemon API
 
-
 2. Wikipedia API
 3. Image Search API (https://developers.google.com/custom-search/v1/overview)
 4. Weather API (openweathermap.org)
@@ -80,7 +79,7 @@ dotenv
 - My Implemention of this API
     - making a 2-player card game out of it
     - store all pokemon info into a db/json file at server with images
-    
+
     - randomly give 104 cards to front end in set of 52-52 for each player
     - for every round pick a card out of 52 and compare both player pokemon status , one with high strength get 10 points
     - game over when all 52 cards are compared.
