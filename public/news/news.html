@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>APImess - News </title>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<style>
+  #result {
+    border: rgba(51, 51, 51, 1);
+  }
+
+  body {
+    padding: 2em;
+  }
+
+  form {
+    margin: 1em;
+  }
+</style>
+
+<body>
+  <h1> Using News API <small><a href="https://newsapi.org">Powered by News API</a></small></h1>
+ 1. Top Headlines with country selection
+  <form id="country-news">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="country" id="us" value="us">
+      <label class="form-check-label" for="us">US</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="country" id="in" value="in" checked>
+      <label class="form-check-label" for="in">India</label>
+    </div>
+    <button type="submit" class="btn btn-primary"> Grab </button>
+  </form>
+
+  <!-- business entertainment general health science sports technology -->
+  2. Top Headlines with category selection
+  <form id="category-news">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="business" value="business">
+      <label class="form-check-label" for="business">Business</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="entertainment" value="entertainment">
+      <label class="form-check-label" for="entertainment">Entertainment</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="general" value="general" checked>
+      <label class="form-check-label" for="general">General</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="health" value="health">
+      <label class="form-check-label" for="health">Health</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="science" value="science">
+      <label class="form-check-label" for="science">Science</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="sports" value="sports">
+      <label class="form-check-label" for="sports">Sports</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="category" id="technology" value="technology">
+      <label class="form-check-label" for="technology">Technology</label>
+    </div>
+    <button type="submit" class="btn btn-primary"> Grab </button>
+  </form>
+
+  <!-- bbc-news cnn fox-news the-new-york-times new-york-magazine 
+        the-wall-street-journal  the-times-of-india -->
+  3. Top Headlines with source selection
+  <form id="source-news">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="bbc-news" value="bbc-news">
+      <label class="form-check-label" for="bbc-news">BBC News</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="cnn" value="cnn">
+      <label class="form-check-label" for="cnn">CNN</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="the-times-of-india" value="the-times-of-india"
+        checked>
+      <label class="form-check-label" for="the-times-of-india">The Times Of India</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="the-wall-street-journal"
+        value="the-wall-street-journal">
+      <label class="form-check-label" for="the-wall-street-journal">The Wall Street Journal</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="new-york-magazine" value="new-york-magazine">
+      <label class="form-check-label" for="new-york-magazine">New York Magazine</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="the-new-york-times" value="the-new-york-times">
+      <label class="form-check-label" for="the-new-york-times">The New York Times</label>
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="source" id="fox-news" value="fox-news">
+      <label class="form-check-label" for="fox-news">FOX News</label>
+    </div>
+    <button type="submit" class="btn btn-primary"> Grab </button>
+  </form>
+
+  4. Search By Keyword
+  <form id="search-news">
+    <div class="form-group">
+      <label for="search"></label>
+      <input type="text" class="form-control" name="search" id="search" aria-describedby="helpId"
+        placeholder="Enter Keyword to Search">
+      <small id="helpsearch" class="form-text text-muted">Search by keywords </small>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </div>
+  </form>
+
+  <!-- Result Showcase -->
+  <div class="container" id="result">
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+  </script>
+  <script src="news.js"></script>
+
+</body>
+
+</html>

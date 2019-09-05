@@ -4,7 +4,8 @@
 
 > App to contact Multiple-api and build something out of it!
 
-1. News API (https://newsapi.org/)
+1. ✅ News API (https://newsapi.org/)
+2. Pokemon API
 
 
 2. Wikipedia API
@@ -14,7 +15,6 @@
 6. Google Maps API (https://developer.here.com)
 7. Nasa API
 8. Geolocation API
-9. Pokemon API
 10. Github API
 11. Air Poluttion API
 
@@ -22,7 +22,7 @@ More!!..
 - https://api.data.gov/docs/ed/
 
 ### Challenge 
-1. Hiding My api keys for all of them 
+1. Hiding My api keys for all of them ✅ 
     > using dotenv npm package and using a proxy server(requesting API server from a Server) 
 
 2. Can u use charts to show visually appealing thinks 
@@ -33,8 +33,12 @@ More!!..
 
 ### Learn 
 REST - Representational state transfer
+node-fetch
+dotenv
+
 
 ## Working & Steps Followed
+---------------------------
 
 #### News API
 
@@ -54,12 +58,33 @@ REST - Representational state transfer
     Relevancy to search keyword
     Popularity of source
     
-    - News API has 2 main endpoints:
+    - News API has 3  endpoints:
         - /v2/top-headlines
         - /v2/everything
+        - /v2/sources
+
+    - All used 
+
+    [ ] Stretch
+        [ ] Search by category + country combination => Not implemented (may be in Future)
+
+        [ ] Adding a placeholder image if image url is null
 
 
+ #### Pokemon API
+- No authentication is required to access this API, 
+- rate limiting has been changed to a fixed limit of 100 API requests per IP addres per minute
+- If you are going to be regularly using the API, they recommend caching data on your service or deploying your own instance of the API.
+- data gethered in a json file not in database
 
+- My Implemention of this API
+    - making a 2-player card game out of it
+    - store all pokemon info into a db/json file at server with images
+    
+    - randomly give 104 cards to front end in set of 52-52 for each player
+    - for every round pick a card out of 52 and compare both player pokemon status , one with high strength get 10 points
+    - game over when all 52 cards are compared.
+    - Play again Option
 
 
 ### Deployment 
