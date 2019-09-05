@@ -49,7 +49,6 @@ $('form').submit((event) => {
       break;
 
     case 'search-news':
-      console.log('jkj')
       getNewsByKeyword()
 
   }
@@ -81,9 +80,7 @@ $('form').submit((event) => {
     result.innerHTML = ""
     const news_response = await fetch(`/api/news/top-headlines/source/${source_name}`)
     const news_json = await news_response.json()
-    console.log(news_json)
     const articles = news_json.articles
-    console.log(articles)
     articles.forEach(article => {
       const html = generateCard(article)
       result.innerHTML += html
@@ -94,12 +91,9 @@ $('form').submit((event) => {
     result.innerHTML = ""
     const keyword = document.getElementById('search').value
     if (keyword === "") return 
-    console.log(keyword)
     const news_response = await fetch(`/api/news/search/${keyword}`)
     const news_json = await news_response.json()
-    console.log(news_json)
     const articles = news_json.articles
-    console.log(articles)
     articles.forEach(article => {
       const html = generateCard(article)
       result.innerHTML += html
