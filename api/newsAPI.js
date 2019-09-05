@@ -42,8 +42,6 @@ route.get('/top-headlines/source/:source', async (req, res) => {
   }
 })
 
-
-
 route.get('/search/:keyword', async (req, res) => {
   try {
     const keyword = req.params.keyword
